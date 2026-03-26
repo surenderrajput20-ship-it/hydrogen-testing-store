@@ -1,9 +1,29 @@
 import { fetchAPI } from "../lib/shopify";
+import HeaderNew from "../components/HeaderNew";
 import AddToCart from "../components/AddToCart";
+
 export default async function Home() {
 
 
   const query = `
+  {
+  shop {
+    brand {
+      logo {
+        image {
+          url
+        }
+      }
+    }
+  }
+
+  menu(handle: "main-menu") {
+    items {
+      title
+      url
+    }
+  }
+
  {
   products(first: 8) {
     edges {
@@ -41,9 +61,17 @@ export default async function Home() {
 
   const data = await fetchAPI(query);
   const products = data.data.products.edges;
- 
+
+
+// ✅ SAFE (Vercel crash avoid)
+const menu = data.data.menu?.items || [];
+const logo = data.data.shop.brand.logo?.image?.url || "";
 
   return (
+ <div>
+
+    <HeaderNew menu={menu} logo={logo} />
+    
     <div className="p-10">
       <h1 className="text-2xl font-bold mb-6">My Shopify Products tetts</h1>
 
@@ -77,6 +105,7 @@ const variantId = node.variants.edges[0]?.node.id;
   );
 })}
       </div>
+    </div>
     </div>
   );
 }
