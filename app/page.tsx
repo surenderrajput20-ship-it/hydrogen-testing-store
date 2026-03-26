@@ -1,6 +1,6 @@
 import { fetchAPI } from "../lib/shopify";
 import AddToCart from "../components/AddToCart";
-import Header from "../components/header";
+import Header from "../components/HeaderNew";
 
 export default async function Home() {
 
