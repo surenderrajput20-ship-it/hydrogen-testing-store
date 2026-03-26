@@ -63,7 +63,7 @@ export default async function Home() {
 
       {/* ✅ HEADER inside return */}
       <Header menu={menu} logo={logo} />
-
+<h2>testing</h2>
       <h1>My Shopify Products</h1>
 
       <div className="grid grid-cols-4 gap-6">
