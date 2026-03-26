@@ -54,17 +54,17 @@ export default async function Home() {
 
   const data = await fetchAPI(query);
 
-  const products = data.data.products.edges;
   const menu = data.data.menu.items;
   const logo = data.data.shop.brand.logo.image.url;
+  const products = data.data.products.edges;
 
   return (
     <div>
 
-      {/* ✅ HEADER inside return */}
+      {/* ✅ HEADER YAHAN HI HOGA */}
       <Header menu={menu} logo={logo} />
-<h2>testing</h2>
-      <h1>My Shopify Products</h1>
+
+      <h1>My Shopify Products efrgfhn</h1>
 
       <div className="grid grid-cols-4 gap-6">
         {products.map(({ node }: any) => {
