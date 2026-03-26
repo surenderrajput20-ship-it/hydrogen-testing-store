@@ -1,9 +1,30 @@
 import { fetchAPI } from "../lib/shopify";
 import AddToCart from "../components/AddToCart";
+import Header from "../components/header";
+
+<Header menu={menu} logo={logo} />
 export default async function Home() {
 
 
   const query = `
+  {
+  shop {
+    name
+    brand {
+      logo {
+        image {
+          url
+        }
+      }
+    }
+  }
+
+  menu(handle: "main-menu") {
+    items {
+      title
+      url
+    }
+  }
  {
   products(first: 8) {
     edges {
