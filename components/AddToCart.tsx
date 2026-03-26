@@ -11,7 +11,7 @@ export default function AddToCart({ variantId }: any) {
 
     const data = await res.json();
     console.log(data);
-     alert("Product added to cart ✅");
+     alert("Product added to cart 22 ✅");
   }
 
   async function buyNow() {
